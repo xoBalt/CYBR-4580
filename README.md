@@ -5,7 +5,7 @@ Repository for the capstone project. This is where we will compose our "proposal
 Here lies the executive summary
 
 ## Proposed Project Timeline
-Here is a fancy gant chart
+Here is a fancy gantt chart
 
 ## Project-oriented Risk List
 This could be risky.
@@ -24,6 +24,6 @@ This is what we need right here.
 Let me tell you a little story
 ### Use Case Diagram
 
-## Resources/Technology Needed
+## Resource Requirements
 
 
