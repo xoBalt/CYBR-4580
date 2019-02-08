@@ -3,6 +3,6 @@
 These are questions we would like to ask our Technical Director, Joshua Lyle, as we assemble our formal project proposal.
 
 - What type of data is meant to be sent?
-- Would a proof of concept with a known, controlled client and known, controlled server be an appropriate final product?
-- Are there particular communication channels of interest?
+- For the proof of concept, can we assume that we only control the two endpoints that are communicating and not the intermediary  infrastructure? 
+- Are there particular communication channels of interest? (Cellular, WiFi, DSL, Radio)
 - Any opinion on splitting data streams between ISPs as an obfuscation measure?
