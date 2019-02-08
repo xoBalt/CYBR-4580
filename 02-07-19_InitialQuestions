@@ -1,3 +1,8 @@
 #Initial Questions
 
 These are questions we would like to ask our Technical Director, Joshua Lyle, as we assemble our formal project proposal.
+
+- What type of data is meant to be sent?
+- Would a proof of concept with a known, controlled client and known, controlled server be an appropriate final product?
+- Are there particular communication channels of interest?
+- Any opinion on splitting data streams between ISPs as an obfuscation measure?
