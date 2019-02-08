@@ -6,3 +6,4 @@ These are questions we would like to ask our Technical Director, Joshua Lyle, as
 - For the proof of concept, can we assume that we only control the two endpoints that are communicating and not the intermediary  infrastructure? 
 - Are there particular communication channels of interest? (Cellular, WiFi, DSL, Radio)
 - Any opinion on splitting data streams between ISPs as an obfuscation measure?
+- What information can you give us about the moving target?
