@@ -25,11 +25,22 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 
 
 ## Application Requirements
-This is what we need right here.
 
 ### User Stories
-Let me tell you a little story
-### Use Case Diagram
+1. As a **network engineer**, I want all of my data links to be used concurrently to maximize bandwidth. 
+
+2. As a **network engineer**, I want my connection to stay up with minimal interruption, even if one of my links drops.
+
+3. As a **security engineer**, I want all of data to be encyrpted while in motion. 
+
+4. As a **security engineer**, I want my data to be randomly split between links to increase obfuscation. 
+
+### Acceptance Criteria
+* The stream splitting daemon should intelligently divide streams across links utilizing their bandwidth efficiently.
+* If a link loses bandwidth or goes down, the stream splitting daemon should respond automatically by limiting or stopping traffic through that link.
+* The data will be encrypted prior to splitting and transporting.
+* Data will be split randomly between links. 
+
 
 ## Resource Requirements
 |Resource  | Dr. Hale needed?     | Investigating Team Member | Description |
