@@ -8,7 +8,6 @@ Here lies the executive summary
 Here is a fancy gantt chart
 
 ## Project-oriented Risk List
-This could be risky.
 
 |Risk name (value)  | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
