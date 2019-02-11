@@ -12,7 +12,14 @@ This could be risky.
 
 |Risk name (value)  | Impact     | Likelihood | Description |
 |-------------------|------------|------------|-------------|
-|Example risk (99) | 5 | 2 |An astroid could destroy the earth. |
+|Loss of a team member. (20)|6|2|The members job or family prevents them from completing the course. That members responsibilities will be divided amongst the remaining members.|
+|Loss of communication with our Sponsor. (10)|4|1|The sponsor is assigned other obligations that take them away from this project. The team will continue with the information already supplied by the sponsor and will clearly outline any assumptions made by the team for the project.|
+|Team members having other scheduling engagements. (8)|1|6| This Risk might happen a few times during the research. The team has numerous ways of communicating. This Risk might happen, but it will have no impact on the project.|
+|Not having the correct technical skillset. (24)|5|6|If a team member or the team has no prior experience with the research. There will be a few times this might happen, but as a team we will gather the needed information and accomplish our tasks.|
+|Programing failure (25)|8|4|The project can not proceed because of a programing failure. This project will be written using Python and most members have a good knowledge base of Python. There might be a point where the team will need to reach out and find better ways to wright aspects of the code.|
+Loss of research (45)|10|2|A team member accidentally deletes a file. The team is working with a few different tools that keep saved work from being destroyed. Each team member will need to keep this practice consistent throughout the project, to ensure a minimal loss of data.|
+|Failure to deliver a final project (50)|10|1|The team fails at any research. The team is excited and capable of accomplishing the tasks ahead. Each team member will need to be active throughout the project. We as a team believe that we can deliver a sound scholarly project.|
+
 
 
 
@@ -25,5 +32,10 @@ Let me tell you a little story
 ### Use Case Diagram
 
 ## Resource Requirements
-
+|Resource  | Dr. Hale needed?     | Investigating Team Member | Description |
+|-------------------|------------|------------|-------------|
+|Python|No|All|Using Python is a programming language to complete the project.|
+|Criss Library|No|All|Accessing the Databases and Digital Commons at the Criss Library.|
+|Raspberry Pi| No| Greg| Utilizing a Raspberry Pi in order to simulate a client connection more effectively.|
+|Supporting Research|No|Greg|Existing research and software that performs a similar job and can be utilized for our purposes.
 
