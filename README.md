@@ -41,6 +41,15 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 * The data will be encrypted prior to splitting and transporting.
 * Data will be split randomly between links. 
 
+### C4 Model Diagrams
+
+#### Level 1
+![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Level%201%20Diagram.png)
+
+#### Level 2
+![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Level%202%20diagram.png)
+
+
 
 ## Resource Requirements
 |Resource  | Dr. Hale needed?     | Investigating Team Member | Description |
