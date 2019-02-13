@@ -26,19 +26,30 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 ## Application Requirements
 
 ### User Stories
-1. As a **network engineer**, I want all of my data links to be used concurrently to maximize bandwidth. 
+1. As a **network engineer**, I want all of my data links to be used concurrently to maximize bandwidth.
+
+* Acceptance criteria: The stream splitting daemon should intelligently divide streams across links utilizing their bandwidth efficiently.
+
 
 2. As a **network engineer**, I want my connection to stay up with minimal interruption, even if one of my links drops.
 
-3. As a **security engineer**, I want all of data to be encyrpted while in motion. 
+* Acceptance criteria: If a link loses bandwidth or goes down, the stream splitting daemon should respond automatically by limiting or stopping traffic through that link.
 
-4. As a **security engineer**, I want my data to be randomly split between links to increase obfuscation. 
 
-### Acceptance Criteria
-* The stream splitting daemon should intelligently divide streams across links utilizing their bandwidth efficiently.
-* If a link loses bandwidth or goes down, the stream splitting daemon should respond automatically by limiting or stopping traffic through that link.
-* The data will be encrypted prior to splitting and transporting.
-* Data will be split randomly between links. 
+3. As a **network engineer**, I want my split information stream to transmit and reassemble data at a consistent rate comparable with standard network protocols.
+
+* Acceptance criteria: The transmission speed and integrity of data falls within 10% of control tests with TCP.
+
+
+4. As a **security engineer**, I want all of my data to be encrypted while in motion.
+
+* Acceptance criteria: The data will be encrypted prior to splitting and transporting.
+
+
+5. As a **security engineer**, I want my data to be randomly split between links to increase obfuscation.
+
+* Acceptance criteria: Data will be split randomly between links. 
+
 
 ### C4 Model Diagrams
 
