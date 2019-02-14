@@ -5,7 +5,7 @@ Repository for the capstone project. This is where we will compose our "proposal
 Here lies the executive summary
 
 ## Proposed Project Timeline
-Here is a fancy gantt chart
+ ![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Gnatt%20Chart.PNG)
 
 ## Project-oriented Risk List
 
