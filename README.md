@@ -30,37 +30,45 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 
 * Acceptance criteria: The stream splitting daemon should intelligently divide streams across links utilizing their bandwidth efficiently.
 
+2. As a **network engineer**, I want to be able to dynamically add and remove data links.
 
-2. As a **network engineer**, I want my connection to stay up with minimal interruption, even if one of my links drops.
+* Acceptance criteria: The stream splitting daemon should dynacially add and remove links based on availability.
+
+3. As a **network engineer**, I want my connection to stay up with minimal interruption, even if one of my links drops.
 
 * Acceptance criteria: If a link loses bandwidth or goes down, the stream splitting daemon should respond automatically by limiting or stopping traffic through that link.
 
 
-3. As a **network engineer**, I want my split information stream to transmit and reassemble data at a consistent rate comparable with standard network protocols.
+4. As a **network engineer**, I want my split information stream to transmit and reassemble data at a consistent rate comparable with standard network protocols.
 
 * Acceptance criteria: The transmission speed and integrity of data falls within 10% of control tests with TCP.
 
 
-4. As a **security engineer**, I want all of my data to be encrypted while in motion.
+5. As a **security engineer**, I want all of my data to be encrypted while in motion.
 
 * Acceptance criteria: The data will be encrypted prior to splitting and transporting.
 
 
-5. As a **security engineer**, I want my data to be randomly split between links to increase obfuscation.
+6. As a **security engineer**, I want my data to be randomly split between links to increase obfuscation.
 
 * Acceptance criteria: Data will be split randomly between links. 
 
+### Activity Diagrams
 
-### C4 Model Diagrams
+https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0
+
+
+
+## Architectural  Diagrams
 
 #### Level 1
-![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Level%201%20Diagram.png)
+![alt text](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
 
 #### Level 2
-![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Level%202%20diagram.png)
+![alt text](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
 
 #### Level 3
-I will put the level 3 diagram here once it is finished.
+![alt text](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
 
 
 
