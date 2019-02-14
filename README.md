@@ -61,14 +61,13 @@ https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8
 
 ## Architectural  Diagrams
 
-#### Level 1
-![alt text](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
+#### [Level 1](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
 
-#### Level 2
-![alt text](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
 
-#### Level 3
-![alt text](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
+#### [Level 2](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
+
+
+#### [Level 3](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
 
 
 
