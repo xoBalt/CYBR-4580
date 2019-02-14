@@ -53,10 +53,7 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 
 * Acceptance criteria: Data will be split randomly between links. 
 
-### Activity Diagrams
-
-https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0
-
+### [Activity Diagram](https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0)
 
 
 ## Architectural  Diagrams
