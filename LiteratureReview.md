@@ -14,3 +14,11 @@ I will put my summary of this paper here.
 
 * **MultiPath TCP (MPTCP)** -  An effort towards enabling the simultaneous use of several IP-addresses/interfaces by a modification of 
 TCP that presents a regular TCP interface to applications, while in fact spreading data across several subflows.
+
+
+2. "***Enhancement of Packet Reordering in a Mobile Stream Control Transmission Protocol for a Heterogeneous Wireless Network Vertical Handover***
+Hamza, B. J., Chee Kyun Ng, Noordin, N. K., Rasid, M. F. A., Ismail, A., & Tahir, Y. H. (2010). Enhancement of packet reordering in a mobile stream control transmission protocol for a heterogeneous wireless network vertical handover. Journal of High Speed Networks, 17(3), 163–173. https://doi-org.leo.lib.unomaha.edu/10.3233/JHS-2010-0338
+
+This paper dates back to several years ago and describes a means of normalizing communications between mobile networks and wireless local area networks. While the technology mentioned in the paper is no longer new (for instance, the integration of 3G networks is not as fresh a research area), the researchers did encounter a similar problem to ours. As a transceiver moved between cellular towers and data was transferred between different types of communication networks, the data would have to be sent in chunks across distinct pathways.
+
+Therefore they proposed a structure to perform buffering and only send data when a connection was available. This also handled error correction in ascertaining that all chunks were received. We might be able to use a similar concept to their proposed structure in handling incoming packets at the receiving end of split streams.
