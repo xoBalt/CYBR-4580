@@ -67,6 +67,9 @@ it may be advantageous to utilize an operating system that is specifically desig
 created by the MIT Parallel and Distributed Operating Systems Group called Exokernel. This operating system would allow our user level program to more directly interact with the networking 
 interfaces and therefore increase performance. If we plan to use Exokernel, the application development will most likely have to be done in C but we are still researching this.
 
+Measuring success in terms of our project goals will be one of the more complex tasks we complete. When testing the performance capabilities of the stream splitting software we plan to utilize ethernet and WiFi concurrently. Due to the fact that we will be utilizing wireless communication, one major concern is interference. All tests will be conducted in an
+environment where the signal to noise ratio (SNR) is 23 dB or more so that signal interference could be consiered negligible. We will also be conducting tests during non-peak hours to ensure that network congestion on the WAN is a non factor. Measurements will be made not only in terms of aggregate bandwidth available, but also in latency and error frequency.
+
 Throughout the project we will be utilizing Git in order to manage the code base more effectively. We will also be collaborating with Trello and organizing all of our tasks and task assignment through that platform. Our first sprint plan can be found on that Trello board. 
 Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams will be slightly fluid for the first couple weeks as the project 
 progresses and we narrow down a more specific path for development.
@@ -89,5 +92,5 @@ progresses and we narrow down a more specific path for development.
 |Python|No|All|Using Python is a programming language to complete the project.|
 |Criss Library|No|All|Accessing the Databases and Digital Commons at the Criss Library.|
 |Raspberry Pi| No| Greg| Utilizing a Raspberry Pi in order to simulate a client connection more effectively.|
-|Supporting Research|No|Greg|Existing research and software that performs a similar job and can be utilized for our purposes.
+|Supporting Research|No|Greg|Existing research and software that performs a similar job and can be utilized for our purposes.|
 
