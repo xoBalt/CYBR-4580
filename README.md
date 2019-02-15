@@ -63,11 +63,14 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 Through our research thus far, we have discovered a number of techniques that may be used to achieve our project objectives. In deciding which path to take, one of our main considerations was the 
 experience levels and expertise areas of the group. Seeing as none of us have experience in kernel level software development, we have decided that modifying MPTCP to our project objectives is not 
 a direction that we feel comfortable with. Instead we plan on developing a user level application and creating a proof of concept most likely using Python. In order to achieve our goals
-networking it may be advantagous to utilize an operating system that is specifically designed for application-level networking. We are currently considering the use of an operating system 
+it may be advantageous to utilize an operating system that is specifically designed for application-level networking. We are currently considering the use of an operating system 
 created by the MIT Parallel and Distributed Operating Systems Group called Exokernel. This operating system would allow our user level program to more directly interact with the networking 
 interfaces and therefore increase performance. If we plan to use Exokernel, the application development will most likely have to be done in C but we are still researching this.
 
-Throughout the project we will be utilizing Git in order to manage the code base more effectively. We will also be collaborating with Trello and organizing all of our tasks and task assignment through that platform. 
+Throughout the project we will be utilizing Git in order to manage the code base more effectively. We will also be collaborating with Trello and organizing all of our tasks and task assignment through that platform. Our first sprint plan can be found on that Trello board. 
+Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams will be slightly fluid for the first couple weeks as the project 
+progresses and we narrow down a more specific path for development.
+
 ### Architectural  Diagrams
 
 #### [Level 1](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
