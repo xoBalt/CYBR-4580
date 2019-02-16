@@ -1,4 +1,9 @@
 # Stream Splitting Moving Target Defense
+### Team Members
+* Greg Baltzer
+* Luke Zwenger
+* Marvin Roe
+* Alex Stara
 
 ## Executive Summary
 Sending communications along a single channel poses certain risks to the data streams being sent. Data which runs via a single route is vulnerable to a variety of threats against confidentiality, integrity, and availability. These include the actions of human threat agents who may jeopardize any of these principles via intercepting, modifying, replaying, or outright discarding messages of importance. Also of concern is the potential threat by natural occurrences which may interrupt or delay services which remain on one communication channel at a time.
