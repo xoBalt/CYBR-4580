@@ -100,3 +100,5 @@ progresses and we narrow down a more specific path for development.
 |Raspberry Pi| No| Greg| Utilizing a Raspberry Pi in order to simulate a client connection more effectively.|
 |Supporting Research|No|Greg|Existing research and software that performs a similar job and can be utilized for our purposes.|
 
+## Group Trello Board
+https://trello.com/b/S4UXJ3fy/stream-splitting-mtd
