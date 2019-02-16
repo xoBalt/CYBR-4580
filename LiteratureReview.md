@@ -18,16 +18,21 @@ Therefore they proposed a structure to perform buffering and only send data when
 
 
 3. ***Stream-based aggregation of unreliable heterogeneous network links***
-
-https://arxiv.org/pdf/1509.08222.pdf
-Working on paragraphs right now
-
+ M. Zielinski, “Stream-based aggregation of unreliable heterogeneous ´
+network links,” arXiv preprint arXiv:1509.08222, 2015,Retrieved February 13, 2019, from https://arxiv.org/pdf/1509.08222.pdf
+  
+  
+ This paper talks about the uses of using MTCP while maximizing bandwidth and minimizing latency.It goes into detail about using a modified earlist delivery path first sceduling protocol. The use of an earlist delivery path protocol not only allows for the use of MTCP, but also allows better bandwith to be achieved.this can be achived in theory if not data streams go down.If a data stream does go down this packet sceduling protocol has a hard time making up that error.
+ 
+ After  that it goes into a probloem for MTCP called TCP over TCP meltdown.This oucurs when TCP congestion
+control from two layer interfere badly.The work around they provided was to terminate TCP conections from the sender and reciver and send raw TCP stream.In addition to sending raw TCP stream there needs to be an addidtion reorder buffer and addidtion flow control needs to be add to make sure that the timeout of the packets is not a probloem.This paper allows use not only to look into to a packet scheadular but also gives us to a probloem we would have ran into if we hadn't used one.
 
 
 4. ***MultiPath TCP: From Theory to Practice***
+Z. Afzal and S. Lindskog, Multipath TCP IDS Evasion and Mitigation.
+Cham: Springer International Publishing, 2015, pp. 265–282,Retrieved February 13, 2019, from https://link.springer.com/content/pdf/10.1007%2F978-3-642-20757-0_35.pdf
 
-https://link.springer.com/content/pdf/10.1007%2F978-3-642-20757-0_35.pdf
-Working on paragraphs right now
+This paper gives a nice general overveiw of MTCP.The main purpose in our eyes is the implamentain of MTCP that they go over.In this paper they go over a kernal implantion of MTCP, as of right now we have no intentions of going that far deep but instead would rather implment this on an applaction layer.In the paper's implementation they use a Multi-path control block to allow the start and stop of new and old TCP streams.They also use this control block to gather data from slave blocks that run on the tcp data streams and evaluate when they should be stopped.The big advantge for this is it allows for an easy way to monitor bandwith through the streams and if a data stream goes down the control block can easily make a new one.
 
 5. ***Fast and Flexible Application-Level Networking on Exokernel Systems.*** Ganger, G. R., Engler, D. R., & Pinckney, T. (2002). Retrieved February 12, 2019, from https://web.stanford.edu/~engler/exo-tocs.pdf
 
@@ -44,6 +49,5 @@ This paper discusses difficulties in transmitting information between ground sta
 * **MultiPath TCP (MPTCP)** -  An effort towards enabling the simultaneous use of several IP-addresses/interfaces by a modification of 
 TCP that presents a regular TCP interface to applications, while in fact spreading data across several subflows.
 
-* **Stream Control Transmission Protocol (SCTP)** -  was designed with multihoming in mind and supports fail-over
 * **Application-level networking** - An effort towards enabling individual applicions to interact more directly with network interfaces and improve customizability of application specific network communications.
 
