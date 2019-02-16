@@ -6,11 +6,11 @@ Sending communications along a single channel poses certain risks to the data st
 This project seeks to address these concerns by creating a point-to-point stream splitting mechanism for channeling data to protect it while in motion. This will take advantage of using multiple communication routes in parallel. As such, any potential attackers will either observe at most a meaningless fraction of the data being sent or be discouraged from attacking by the prospect of compromising multiple lines of communication. This will also provide hardening against infrastructure collapse as the system will be already prepared to swap to different data channels. Beyond the security and redundancy benefits, this project will also seek to increase bandwidth through the simultaneous use of multiple data links. A plethora of industries would reap the benefits of such software including national security, maritime telecommunication, healthcare, and more.
 
 The goal of this project is to develop and prototype an interface which may be deployed across organization locations. More specifically our goals are to provide an interface that will: 
- * dynamically add and remove communication channels,
- * split streams between multiple data links,
- * ensure data encryption,
- * provide increased bandwidth,
- * and test for communication quality.
+ * Dynamically add and remove communication channels
+ * Split streams between multiple data links
+ * Ensure data encryption
+ * Provide increased bandwidth
+ * Test for communication quality
 
 
 ## Proposed Project Timeline
@@ -24,7 +24,7 @@ The goal of this project is to develop and prototype an interface which may be d
 |Loss of communication with our Sponsor. (10)|4|1|The sponsor is assigned other obligations that take them away from this project. The team will continue with the information already supplied by the sponsor and will clearly outline any assumptions made by the team for the project.|
 |Team members having other scheduling engagements. (8)|1|6| This Risk might happen a few times during the research. The team has numerous ways of communicating. This Risk might happen, but it will have no impact on the project.|
 |Not having the correct technical skillset. (24)|5|6|If a team member or the team has no prior experience with the research. There will be a few times this might happen, but as a team we will gather the needed information and accomplish our tasks.|
-|Programing failure (25)|8|4|The project can not proceed because of a programing failure. This project will be written using Python and most members have a good knowledge base of Python. There might be a point where the team will need to reach out and find better ways to wright aspects of the code.|
+|Programing failure (25)|8|4|The project can not proceed because of a programing failure. This project will be written using Python and most members have a good knowledge base of Python. There might be a point where the team will need to reach out and find better ways to write aspects of the code.|
 Loss of research (45)|10|2|A team member accidentally deletes a file. The team is working with a few different tools that keep saved work from being destroyed. Each team member will need to keep this practice consistent throughout the project, to ensure a minimal loss of data.|
 |Failure to deliver a final project (50)|10|1|The team fails at any research. The team is excited and capable of accomplishing the tasks ahead. Each team member will need to be active throughout the project. We as a team believe that we can deliver a sound scholarly project.|
 
