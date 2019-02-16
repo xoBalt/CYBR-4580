@@ -41,6 +41,13 @@ Since our group plans on developing software at the application level instead of
 can be up to eight times faster than socket-based versions. The key challenges in implementing application-level networking are securely multiplexing multiple applications onto a single networking interface, and doing so while efficiently supporting useful network services. Due to the fac that this paper is 84 pages long, I have not made it through the entire thing but initially it is easy to see
 that we can learn a lot from their efforts. Essentially this gives us a head start in understanding our development path for the stream splitting software.
 
+6. ***Performance Analysis of Data Transfer Protocols over Space Communications***
+T. De Cola and M. Marchese, "Performance analysis of data transfer protocols over space communications," in IEEE Transactions on Aerospace and Electronic Systems, vol. 41, no. 4, pp. 1200-1223, Oct. 2005.
+doi: 10.1109/TAES.2005.1561883
+
+This paper discusses difficulties in transmitting information between ground stations and satellites in orbit. While we're focusing on cabled and loccal wireless signals, certain insights from the research can also help our project as plans had to be made for dealing with packet delay or loss. Additionally, a branch of the proposed approaches of coordinating packet transfer was to integrate the assurance properties of TCP into the application layer, which is part of our project's direction. A number of references are noted for both the application layer integration and using an interface as a specialized connection-splitting gateway, which could prove fruitful for further research.
+
+
 #### Keyword Definitions
 * **MultiPath TCP (MPTCP)** -  An effort towards enabling the simultaneous use of several IP-addresses/interfaces by a modification of 
 TCP that presents a regular TCP interface to applications, while in fact spreading data across several subflows.
