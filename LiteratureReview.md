@@ -1,16 +1,10 @@
 # Literature Review
 
-The following is a collection of past research project that were conducted on stream splitting moving target defense. There are a number of different
-sources from unique authors that offer a lot of background knowledge in the area of stream splitting. The applications of stream splitting
-specifically for moving target defense are not quite as thouroughly researched which provides an interesting opportunity.
+The following is a collection of past research project that were conducted on stream splitting moving target defense. There are a number of different sources from unique authors that offer a lot of background knowledge in the area of stream splitting. The applications of stream splitting specifically for moving target defense are not quite as thoroughly researched, which provides an interesting opportunity.
 
 1. ***A Measurement-based Study of MultiPath TCP Performance over Wireless Networks*** Chen, Y., Lim, Y., Gibbens, R. J., Nahum, E. M., Khalili, R., & Towsley, D. (2013). Retrieved February 10, 2019, from http://conferences.sigcomm.org/imc/2013/papers/imc231-chenA.pdf
 
-This paper focused primarily on the effects of stream splitting between WiFi and LTE on mobile devices. The researchers implemented MPTCP in order to perform the stream splitting in various different scenarios.
-They found that MPTCP is robust in acheiving performance at least close to the best single-path performance, across a wide range of network environments. For large transfers, performance was better than the best single path, except in cases with poor cellular networks. What this means is that 
-if they were attempting to download a large file, MPTCP provided significantly better performance than just using one link at a time. That being said, they did discover a major
-concern with MPTCP where different data links had very different latency. For example, a cellphone stream splitting between WiFi and 3G did not experience significant performance increases due to the fact that the reassembly process was hindered by waiting around for the packets
-that were tranfered via 3G.
+This paper focused primarily on the effects of stream splitting between WiFi and LTE on mobile devices. The researchers implemented MPTCP in order to perform the stream splitting in various different scenarios. They found that MPTCP is robust in acheiving performance at least close to the best single-path performance, across a wide range of network environments. For large transfers, performance was better than the best single path, except in cases with poor cellular networks. What this means is that if they were attempting to download a large file, MPTCP provided significantly better performance than just using one link at a time. That being said, they did discover a major concern with MPTCP where different data links had very different latency. For example, a cell phone stream splitting between WiFi and 3G did not experience significant performance increases due to the fact that the reassembly process was hindered by waiting around for the packets that were tranfered via 3G.
 
 In our case we will not be utilizing cellular networks, so we should not experience this issue due to the fact that WiFi vs Ethernet latency is much less significant than that of 3G. 
 
@@ -37,15 +31,13 @@ Working on paragraphs right now
 
 5. ***Fast and Flexible Application-Level Networking on Exokernel Systems.*** Ganger, G. R., Engler, D. R., & Pinckney, T. (2002). Retrieved February 12, 2019, from https://web.stanford.edu/~engler/exo-tocs.pdf
 
-Since our group plans on developing software at the application level instead of the kernel level, it seemed fitting to research potential platforms and projects that have delved into this area before. This paper dates back to 2002 and focuses on the requirements and performance improvements for networking at the application level. Through their research they found that specialized applications 
-can be up to eight times faster than socket-based versions. The key challenges in implementing application-level networking are securely multiplexing multiple applications onto a single networking interface, and doing so while efficiently supporting useful network services. Due to the fac that this paper is 84 pages long, I have not made it through the entire thing but initially it is easy to see
-that we can learn a lot from their efforts. Essentially this gives us a head start in understanding our development path for the stream splitting software.
+Since our group plans on developing software at the application level instead of the kernel level, it seemed fitting to research potential platforms and projects that have delved into this area before. This paper dates back to 2002 and focuses on the requirements and performance improvements for networking at the application level. The researchers found that specialized applications can be up to eight times faster than socket-based versions. The key challenges in implementing application-level networking are securely multiplexing multiple applications onto a single networking interface, and doing so while efficiently supporting useful network services. Due to the fact that this paper is 84 pages long, I have not made it through the entire thing but initially it is easy to see that we can learn a lot from their efforts. Essentially this gives us a head start in understanding our development path for the stream splitting software.
 
 6. ***Performance Analysis of Data Transfer Protocols over Space Communications***
 T. De Cola and M. Marchese, "Performance analysis of data transfer protocols over space communications," in IEEE Transactions on Aerospace and Electronic Systems, vol. 41, no. 4, pp. 1200-1223, Oct. 2005.
 doi: 10.1109/TAES.2005.1561883
 
-This paper discusses difficulties in transmitting information between ground stations and satellites in orbit. While we're focusing on cabled and loccal wireless signals, certain insights from the research can also help our project as plans had to be made for dealing with packet delay or loss. Additionally, a branch of the proposed approaches of coordinating packet transfer was to integrate the assurance properties of TCP into the application layer, which is part of our project's direction. A number of references are noted for both the application layer integration and using an interface as a specialized connection-splitting gateway, which could prove fruitful for further research.
+This paper discusses difficulties in transmitting information between ground stations and satellites in orbit. While we're focusing on cabled and local wireless signals, certain insights from the research can also help our project as plans had to be made for dealing with packet delay or loss. Additionally, a branch of the proposed approaches for coordinating packet transfer was to integrate the assurance properties of TCP into the application layer, which is part of our project's direction. A number of references are noted for both the application layer integration and using an interface as a specialized connection-splitting gateway, which could prove fruitful for further research.
 
 
 #### Keyword Definitions
