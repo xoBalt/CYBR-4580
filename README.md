@@ -5,7 +5,12 @@ Sending communications along a single channel poses certain risks to the data st
 
 This project seeks to address these concerns by creating a point-to-point stream splitting mechanism for channeling data to protect it while in motion. This will take advantage of using multiple communication routes in parallel. As such, any potential attackers will either observe at most a meaningless fraction of the data being sent or be discouraged from attacking by the prospect of compromising multiple lines of communication. This will also provide hardening against infrastructure collapse as the system will be already prepared to swap to different data channels.
 
-The goal of this project is to develop and prototype an interface which may be deployed across organization locations. This interface aims to provide tools for dynamically adding and removing communication channels, ensuring data encryption, and testing for communication quality. The interface will then handle encryption and balance communication channels, splitting up and reassembling data streams as necessary.
+The goal of this project is to develop and prototype an interface which may be deployed across organization locations. More specifically our goals are to provide an interface that will: 
+ *dynamically add and remove communication channels,
+ *split streams between multiple data links,
+ *ensure data encryption,
+ *provide increased bandwidth,
+ *test for communication quality.
 
 ## Proposed Project Timeline
  ![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Gnatt%20Chart.PNG)
