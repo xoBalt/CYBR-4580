@@ -102,3 +102,14 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+Code/pip-selfcheck.json
+Code/Scripts/pip3.6-script.py
+Code/Scripts/pip3-script.py
+Code/Scripts/easy_install-script.py
+Code/Scripts/easy_install-3.6-script.py
+Code/Scripts/activate.bat
+Code/Scripts/Activate.ps1
+Code/Scripts/activate
+Code/pyvenv.cfg
+Code/Scripts/deactivate.bat
+Code/Scripts/pip-script.py
