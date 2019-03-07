@@ -1,11 +1,26 @@
-import socket
+import socket, pickle
+
+class ProcessData:
+    process_id = 0
+    project_id = 0
+    task_id = 0
+    start_time = 0
+    end_time = 0
+    user_id = 0
+    weekend_id = 0
+
+
+HOST = 'localhost'
+PORT = 50007
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.bind(('localhost', 50000))
+s.bind((HOST, PORT))
 s.listen(1)
 conn, addr = s.accept()
-while 1:
-    data = conn.recv(1024)
-    if not data:
-        break
-    conn.sendall(data)
+print ('Connected by', addr)
+
+data = conn.recv(4096)
+data_variable = pickle.loads(data)
 conn.close()
+print (data_variable)
+# Access the information by doing data_variable.process_id or data_variable.task_id etc..,
+print ('Data received from client')
