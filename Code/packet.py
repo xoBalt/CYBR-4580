@@ -1,6 +1,6 @@
 import hashlib
 #datum
-class packet:
+class packet():
 
     def __init__(self, source, destination, sequence_number, size, data, checksum, transmission_id ):
         self.source = source
@@ -8,7 +8,7 @@ class packet:
         self.sequence_number = sequence_number
         self.size = size
         self.data = data
-        self.checksum = self.generateChecksum(self)
+        self.checksum = None
 
 
     def generateChecksum(self):
