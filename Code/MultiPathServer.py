@@ -39,7 +39,6 @@ class ThreadedServer(object):
                     sem_lock.release()
                     #after modifying the array it is released
 
-                    print("...")
 
                 else:
                     raise error('Client disconnected')
@@ -88,6 +87,7 @@ if __name__ == "__main__":
     #This loop prints the contents of the data that has been recieved every 5 seconds then clears it.
     while True:
         time.sleep(5)
+        print("...")
         array.sort(key= sortbysequence)
         for datum in array:
             print(datum.data)

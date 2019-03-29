@@ -30,9 +30,7 @@ i = 0
 #Connects sockets to all the host ips and stores them in a list.
 while i < hostCount:
     print("Connecting socket to: "+hostIPs[i])
-    print(connections[i])
     connections[i].connect((hostIPs[i], port))
-    print(connections[i])
     i+=1
 
 

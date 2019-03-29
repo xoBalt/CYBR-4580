@@ -108,38 +108,26 @@ progresses and we narrow down a more specific path for development.
 ## Group Trello Board
 https://trello.com/b/S4UXJ3fy/stream-splitting-mtd
 
-
-## Project realization
-
-	
- The team has kept the Project Timeline on schedule, and these are the tasked that have been completed. The team has been able to understand the Python library to handle the building of packets and are in the process of understanding the reassembly of the packets. The team completed the research on Splitting Techniques and found the Python library that handles those functions and some code has been written to accomplish this. The team was able to find libraries in Python that has narrowed the scope of the project to benefit the team. The team is working to understand the collaboration of these libraries to produce a deliverable project to our sponsor. Spring Break helped the team dry up a few issues and get focus refocused on the project. 
-
- There is a total of 15 Trello cards Completed and those cards are as follows: There is a total of seven Trello cards addressing the research in how Python worked at the Application layer and then the libraries available for Networking with Python. The team also did research with Stream Splitting Protocols using MPTCP and ECMP and researching the use of the Exokernal in both the Application layer the Networking layer. In this same time frame the team determined that Python would be a better choice than work with C as a programming language. The team has also investigated how Python addressed NIC Binding. 
- Five of the Trello cards displayed how the team would divide and accomplish the Project Proposal with Literature Review and how to create and modify diagrams used in the proposal. The Project Presentation had three stages, with the first one being an outline of the presentation then the review and revision of that outline and then the rough draft and final draft finishing out the project presentation.
- The last three cards are addressing how the team split into two teams and two members went after the Packet class and methods. The other two members went after the identification of the NIC’s and the handshake methods. 
-At this time the team has 2 Trello cards In Progress, and they are addressing the next steps with Stream Splitting and the use of two NIC’s with the packets and reassembly of said packets.
- The team has started 2 Trello cards in Backlog, addressing the needs of the next Sprint to Milestone 3.
-
 # Progress Report (3/28/2019)
 ## Overview
 The majority of the past few weeks has been focused on research and planning for the stream splitting application.
 Our research has helped both with understanding the scope of our project and in understanding how the Python libraries handle different aspects of the process.
 The group has had a number meetings to keep honing our scope of the project so that we will be able to deliver a more complete deliverable to our sponsor.
-Besides reasearch, we have also implemented portions of functionality that we plan to implement in the final product. This includes ```MultiPathServer.py``` and ```MultiPathClient.py``` which will create threads for each network interface
-on the machine and listen for incomming connections. The client can then send data to all of those interfaces simultaniously and it will be reassembled and sorted when recieved. 
+Besides research, we have also implemented portions of functionality that we plan to implement in the final product. This includes ```MultiPathServer.py``` and ```MultiPathClient.py``` which will create threads for each network interface
+on the machine and listen for incoming connections. The client can then send data to all of those interfaces simultaneously and it will be reassembled and sorted when received. 
 
 ## Outcomes
 At this point we can automatically enumerate all network interfaces on the host machine and initialize a thread for each interface that will listen for incoming connections.
-For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in it's own isolated packet via a random selection
+For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
 of destination addresses. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged.
 
-* Successfull data disassembly and reassembly.
-* Error correction in the form of sorting the data back into it's intended sequence.
-* Multithreaded socket connections for simultanious data reception.
+* Successful data disassembly and reassembly.
+* Error correction in the form of sorting the data back into it s intended sequence.
+* Multithreaded socket connections for simultaneous data reception.
 * Automatic enumeration and initialization of network interfaces.
 
 ## Hinderances
-There have been a number of hinderences during our first sprint that were very low likelihood and unfortunately high cost. The primary cost originated from the loss of a team member.
+There have been a number of hindrances during our first sprint that were very low likelihood and unfortunately high cost. The primary cost originated from the loss of a team member.
 There were also a couple of team members who experienced flooding in their homes which meant significantly decreased productivity for those members.
 ## Ongoing Risks
 |Risk name (value)  | Impact     | Likelihood | Description |
@@ -148,10 +136,14 @@ There were also a couple of team members who experienced flooding in their homes
 |Loss of communication with our Sponsor. (10)|4|1|The sponsor is assigned other obligations that take them away from this project. The team will continue with the information already supplied by the sponsor and will clearly outline any assumptions made by the team for the project. Thus far the sponsor has been very responsive and communication has not been an issue.|
 |Team members having other scheduling engagements. (8)|1|4| Now that the team is in the routine of our schedule this semester, the probability of scheduling conflicts has decreased.|
 |Not having the correct technical skillset. (24)|5|4|Thus far we have not had any issues in this area and through our research we have been able to decrease the likelihood of this risk. |
-|Programming failure (25)|8|2|We have already established that much of the intended functionality of the application is feasable with Python, therefore the likelihood of this risk has decreased.|
-Loss of research (45)|10|1|The group is currently utilizing git to keep track of version history and we each have local backups of all our work up to this point. The likelihood of this risk has been decreased|
+|Programming failure (25)|8|2|We have already established that much of the intended functionality of the application is feasible with Python, therefore the likelihood of this risk has decreased.|
+|Loss of research (45)|10|1|The group is currently utilizing git to keep track of version history and we each have local backups of all our work up to this point. The likelihood of this risk has been decreased|
 |Failure to deliver a final project (50)|10|1|The team fails at any research. The team is excited and capable of accomplishing the tasks ahead. Each team member will need to be active throughout the project. We as a team believe that we can deliver a sound scholarly project.|
 |Natural Disaster|15|2|Tornado season is rapidly approaching and mother nature has already proved to be a risk in this project so it only seems appropriate to include this in our risk assessment.|
+
+
+
+
 
 
 
