@@ -67,7 +67,7 @@ Loss of research (45)|10|2|A team member accidentally deletes a file. The team i
 
 * Acceptance criteria: Data will be split randomly between links. 
 
-#### [Activity Diagram](https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0)
+#### [Activity Diagrams](https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0)
 
 ##  Project Methodology
 
@@ -84,17 +84,6 @@ environment where the signal to noise ratio (SNR) is 23 dB or more so that signa
 Throughout the project we will be utilizing Git in order to manage the code base more effectively. We will also be collaborating with Trello and organizing all of our tasks and task assignment through that platform. Our first sprint plan can be found on that Trello board. 
 Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams will be slightly fluid for the first couple weeks as the project 
 progresses and we narrow down a more specific path for development.
-
-### Architectural  Diagrams
-
-#### [Level 1](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
-
-
-#### [Level 2](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
-
-
-#### [Level 3](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
-
 
 
 ## Resource Requirements
@@ -134,6 +123,18 @@ the outcomes that have been achieved thus far:
 * Multithreaded socket connections for simultaneous data reception.
 * Automatic enumeration and initialization of network interfaces.
 * OS independent operation.
+
+### Architectural  Diagrams
+
+#### [Level 1](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
+
+
+#### [Level 2](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
+
+
+#### [Level 3](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
+
+
 
 ## Hinderances
 There have been a couple of hindrances that occurred during our first sprint that were very low likelihood and unfortunately high cost. The primary cost originated from the loss of a team member.
