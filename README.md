@@ -112,22 +112,31 @@ https://trello.com/b/S4UXJ3fy/stream-splitting-mtd
 ## Overview
 The majority of the past few weeks has been focused on research and planning for the stream splitting application.
 Our research has helped both with understanding the scope of our project and in understanding how the Python libraries handle different aspects of the process.
-The group has had a number meetings to keep honing our scope of the project so that we will be able to deliver a more complete deliverable to our sponsor.
-Besides research, we have also implemented portions of functionality that we plan to implement in the final product. This includes ```MultiPathServer.py``` and ```MultiPathClient.py``` which will create threads for each network interface
-on the machine and listen for incoming connections. The client can then send data to all of those interfaces simultaneously and it will be reassembled and sorted when received. 
+The group has had a number meetings to keep honing our scope of the project so that we will be able to deliver a more complete product to our sponsor.
+Besides research, we have also implemented portions of functionality that we plan to add in the final product. This includes ```MultiPathServer.py``` and ```MultiPathClient.py``` which will create threads for each network interface
+on the machine and listen for incoming connections. The client can then send data to all of those interfaces simultaneously and it will be reassembled and sorted when received. Overall, the main purpose of this first sprint was to research and 
+prove that the functionality we want to implement is possible. At this stage we are confident that we will be able to implement the features that we outlined originally as our major goals. More details on the specific tasks that have been completed can be found on the group trello board. 
+
+Throughout the project thus far we have taken the approach of writing small proof of concept pieces of code and incrementally building on those and combining them to form a more complete application.
+That methodology is reflected in the code that we have stored on the repository currently. Our very first iteration of tested functionality was in ```client.py``` ```packet.py``` and ```SingleSocketCommunication.py```. This code proved the concept that we would be able to 
+efficiently send custom defined objects over the network and maintain the attributes that we assigned to them. ```ThreadClient.py``` and ```ThreadServer.py``` proved the feasibility of multithreaded network communication in Python. ```InterfaceEnumerator.py``` was an initial implementation of finding all the available network
+interfaces on the host and picking the ones we could use. Finally, ```MultiPathClient.py``` and ```MultiPathServer.py``` implement all the features from the previous programs in the way that we envision them working in the more robust final product.
 
 ## Outcomes
 At this point we can automatically enumerate all network interfaces on the host machine and initialize a thread for each interface that will listen for incoming connections.
 For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
-of destination addresses. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged.
+of destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
+the outcomes that have been achieved thus far:
 
 * Successful data disassembly and reassembly.
-* Error correction in the form of sorting the data back into it s intended sequence.
+* Random distribution of data segments between network interfaces.
+* Error correction in the form of sorting the data back into its intended sequence.
 * Multithreaded socket connections for simultaneous data reception.
 * Automatic enumeration and initialization of network interfaces.
+* OS independent operation.
 
 ## Hinderances
-There have been a number of hindrances during our first sprint that were very low likelihood and unfortunately high cost. The primary cost originated from the loss of a team member.
+There have been a couple of hindrances that occurred during our first sprint that were very low likelihood and unfortunately high cost. The primary cost originated from the loss of a team member.
 There were also a couple of team members who experienced flooding in their homes which meant significantly decreased productivity for those members.
 ## Ongoing Risks
 |Risk name (value)  | Impact     | Likelihood | Description |
