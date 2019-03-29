@@ -6,7 +6,7 @@ import random
 
 connections = []
 i = 0
-hostCount = 2
+hostCount = int(input("Host count: "))
 hostIPs = []
 while i < hostCount:
     hostIPs.append(input("Server ip/hostname: "))
@@ -60,7 +60,7 @@ while True:
         print(datum.data)
         connections[randomConnection].send(pickle.dumps(datum))
         count+=1
-        time.sleep(0.1)
+        #time.sleep(0.1)
         print("Sent to: "+ str(datum.destination))
 
 for connection in connections:

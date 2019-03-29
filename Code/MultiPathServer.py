@@ -52,6 +52,10 @@ class ThreadedServer(object):
 
 
 if __name__ == "__main__":
+
+    def sortbysequence(val):
+        return val.sequence_number
+
     adapters = ifaddr.get_adapters()
 
     for adapter in adapters:
@@ -81,6 +85,8 @@ if __name__ == "__main__":
 
     while True:
         time.sleep(5)
+        array.sort(key= sortbysequence)
         for datum in array:
             print(datum.data)
+        array.clear()
 
