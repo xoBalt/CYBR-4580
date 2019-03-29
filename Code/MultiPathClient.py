@@ -8,12 +8,15 @@ connections = []
 i = 0
 hostCount = int(input("Host count: "))
 hostIPs = []
+
+#Initialize all the sockets that will be used and create list of host ips.
 while i < hostCount:
     hostIPs.append(input("Server ip/hostname: "))
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connections.append(sock)
     i+=1
 
+#Grab server port from user
 while True:
     port = input("Server port: ")
     try:
@@ -24,8 +27,8 @@ while True:
         pass
 
 i = 0
+#Connects sockets to all the host ips and stores them in a list.
 while i < hostCount:
-    #sock.connect((hostIP, port)) #Takes one argument containing both parameters.
     print("Connecting socket to: "+hostIPs[i])
     print(connections[i])
     connections[i].connect((hostIPs[i], port))
@@ -33,8 +36,9 @@ while i < hostCount:
     i+=1
 
 
-size = 4096
+size = 2048
 
+#Constant loop to send messages
 while True:
     count = 0
 
@@ -53,7 +57,9 @@ while True:
 
     #send each packet
     for datum in data:
+        #select random connection to send the data on
         randomConnection = random.randint(0,len(connections)-1)
+        #Set packet information
         datum.sequence_number = count
         datum.size = len(data)
         datum.destination = connections[randomConnection].getsockname()
@@ -63,5 +69,6 @@ while True:
         #time.sleep(0.1)
         print("Sent to: "+ str(datum.destination))
 
+#close all the connections if the user types "stop"
 for connection in connections:
     connection.close()
