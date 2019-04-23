@@ -6,7 +6,7 @@ import ThreadedSession
 import SessionManager
 import ifaddr
 import time
-import hashlib
+import random
 
 sessions = []
 sem_lock = threading.Lock()
@@ -117,11 +117,43 @@ if __name__ == "__main__":
 
 
     while True:
-        time.sleep(5)
-        if(manager.data_array):
-            manager.data_array.sort(key= sortbysequence)
-            for datum in manager.data_array:
-                print(datum.data)
+        count = 0
 
-            manager.data_array.clear()
+        message = input("message: ")
+
+        if message == "stop":
+            break
+        # Split sentence per word and put it in individual packet
+        data = []
+        sentence = []
+        sentence = str.split(message, " ")
+
+        # initialize array of packets
+        for word in sentence:
+            data.append(packet.packet(None, None, None, None, word, None, None))
+
+        # send each packet
+        for datum in data:
+            # select random connection to send the data on
+            randomConnection = random.randint(0, manager.connection_count)
+            # Set packet information
+            datum.sequence_number = count
+            datum.size = len(data)
+            datum.destination = manager.sessions[randomConnection].sock.getsockname()
+            manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+            count += 1
+            # time.sleep(0.1)
+            print("Sent to: " + str(datum.destination))
+
+            if (manager.data_array):
+                manager.data_array.sort(key=sortbysequence)
+                for datum in manager.data_array:
+                    print(datum.data)
+
+                manager.data_array.clear()
+
+        # close all the connections if the user types "stop"
+    for session in manager.sessions:
+        session.sock.close()
+
 
