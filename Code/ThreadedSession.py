@@ -40,6 +40,8 @@ class ThreadedSession(object):
                 client.close()
                 return False
 
+    def stop(self):
+        raise socket.error()
     #we need to be able to send/receive data at the same time
     #figure out how to connect threads to new endpoints
     def connectToClient(self, client):

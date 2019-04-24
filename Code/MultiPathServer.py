@@ -6,7 +6,7 @@ import ThreadedSession
 import SessionManager
 import ifaddr
 import time
-import hashlib
+import random
 
 sessions = []
 sem_lock = threading.Lock()
@@ -52,7 +52,6 @@ if __name__ == "__main__":
         for ip in adapter.ips:
             if validate_ip(ip.ip):
                 valid = True
-                print("Found a valid adapter.")
             else:
                 del(adapter.ips[index])
             index+=1
@@ -67,7 +66,9 @@ if __name__ == "__main__":
 
     while True:
         #Each NIC operates on the same port (this isn't necessary but just allows for faster testing)
-        local_portNo = input("Listening Port? ")
+        local_portNo = 1111
+            #input("Listening Port? ")
+
         try:
             local_portNo = int(local_portNo) # Ensure port is valid.
             break
@@ -76,7 +77,8 @@ if __name__ == "__main__":
 
     while True:
         #Each NIC operates on the same port (this isn't necessary but just allows for faster testing)
-        dest_portNo = input("Destination Port? ")
+        dest_portNo = 1234
+            #input("Destination Port? ")
         try:
             dest_portNo = int(dest_portNo) # Ensure port is valid.
             break
@@ -88,15 +90,22 @@ if __name__ == "__main__":
     #This loop prints the contents of the data that has been recieved every 5 seconds then clears it.
     while True:
         ip = input("Enter ip address to connect to or type \"listen\" to wait for incoming connections: ")
+
+        #Wait for incoming connection
         if(str(ip) == "listen"):
             while True:
                 complete = False
                 time.sleep(2)
                 print(".")
                 for datum in manager.data_array:
-                    if datum == "78342341":
+                    if datum.data == "78342341":
                         manager.handshake_recv()
-                        print("Handshake complete.")
+                        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                        sock.connect((manager.dest_addr[0].ips[0].ip, dest_portNo))
+                        handshake_packet = packet.packet(socket.AF_INET, ip, 1, 2048, "78342341", None, None)
+                        sock.send(pickle.dumps(handshake_packet))
+                        manager.handshake_send(sock)
+                        print("Sent to: "+str(manager.dest_addr[0].ips[0].ip))
                         complete = True
                         break;
                     else:
@@ -106,14 +115,31 @@ if __name__ == "__main__":
             if complete:
                 manager.data_array.clear()
                 break;
+        #Actively seek connection
         else:
             try:
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.connect((ip, dest_portNo))
-                sock.send(pickle.dumps("78342341"))
+                handshake_packet = packet.packet(socket.AF_INET, ip, 1, 2048, "78342341", None, None)
+                sock.send(pickle.dumps(handshake_packet))
                 manager.handshake_send(sock)
+                while True:
+                    complete = False
+                    time.sleep(2)
+                    print(".")
+                    for datum in manager.data_array:
+                        if datum.data == "78342341":
+                            manager.handshake_recv()
+                            complete = True
+                    if complete:
+                        break
             except socket.error:
                 print("Failed to connect, please retry...")
+                print(socket.error)
+        break
+
+    print("Handshake complete.")
+
 
 
     while True:
