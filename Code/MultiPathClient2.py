@@ -7,6 +7,7 @@ import SessionManager
 import ifaddr
 import time
 import random
+import re
 
 sessions = []
 sem_lock = threading.Lock()
@@ -28,6 +29,8 @@ def validate_ip(s):
 
         socket.inet_aton(str(s))
         if str(s).find('127.0.0.1') == 0:
+            raise socket.error
+        if(re.search("169.[1-254].[1-254].[1-254]", s)):
             raise socket.error
     except socket.error:
         return False
@@ -98,15 +101,13 @@ if __name__ == "__main__":
                 time.sleep(2)
                 print(".")
                 for datum in manager.data_array:
-                    if datum.data == "78342341":
+                    if datum.data:
                         #Incoming Handshake
                         manager.handshake_recv()
                         #Outgoing Handshake reply
                         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         sock.connect((manager.dest_addr[0].ips[0].ip, dest_portNo))
-                        handshake_packet = packet.packet(socket.AF_INET, ip, 1, 2048, "78342341", None, None)
-                        sock.send(pickle.dumps(handshake_packet))
-                        manager.handshake_send(sock)
+                        manager.handshake_send(sock, ip)
                         ###########################
                         sock.close()
                         print("Sent to: "+str(manager.dest_addr[0].ips[0].ip))
@@ -118,16 +119,17 @@ if __name__ == "__main__":
                     break;
             if complete:
                 manager.data_array.clear()
+                manager.kill_threads()
+                manager.initialize_connections()
                 break;
         #Actively seek connection
         else:
-            try:
+            #try:
                 #Outgoing Handshake
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                print(ip + ", " + str(dest_portNo))
                 sock.connect((ip, dest_portNo))
-                handshake_packet = packet.packet(socket.AF_INET, ip, 1, 2048, "78342341", None, None)
-                sock.send(pickle.dumps(handshake_packet))
-                manager.handshake_send(sock)
+                manager.handshake_send(sock, ip)
                 ###################
                 print("Sent handshake...")
                 sock.close()
@@ -140,9 +142,13 @@ if __name__ == "__main__":
                         complete = True
                     if complete:
                         break
-            except socket.error:
+                manager.kill_threads()
+                manager.initialize_threads(manager.local_addr)
+                time.sleep(3)
+                manager.initialize_connections()
+            #except socket.error:
                 print("Failed to connect, please retry...")
-                print(socket.error)
+             #   print(socket.error)
         break
 
     print("Handshake complete.")
@@ -168,15 +174,24 @@ if __name__ == "__main__":
         # send each packet
         for datum in data:
             # select random connection to send the data on
-            randomConnection = random.randint(0, manager.connection_count)
+            randomConnection = random.randint(0, manager.connection_count-1)
+            randomDestination = random.randint(0, len(manager.dest_addr)-1)
             # Set packet information
             datum.sequence_number = count
             datum.size = len(data)
-            datum.destination = manager.sessions[randomConnection].sock.getsockname()
-            manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+            datum.source = manager.sessions[randomConnection].sock.getsockname()
+            datum.destination = manager.dest_addr[randomDestination].ips[0].ip
+            #send each packet from a random source to a random destination.
+
+            try:
+                manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+
+            except:
+                manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
+
             count += 1
             # time.sleep(0.1)
-            print("Sent to: " + str(datum.destination))
+            print("Sent to: " + str(datum.destination) + " from: "+ str(datum.source))
 
             if (manager.data_array):
                 manager.data_array.sort(key=sortbysequence)
@@ -187,5 +202,6 @@ if __name__ == "__main__":
 
     # close all the connections if the user types "stop"
     manager.kill_threads()
+    exit()
 
 

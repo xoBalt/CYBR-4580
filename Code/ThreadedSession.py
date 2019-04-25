@@ -3,6 +3,8 @@ import array
 import socket
 import hashlib
 import SessionManager
+import ifaddr
+import threading
 
 class ThreadedSession(object):
     def __init__(self, host, port, semaphore, session_manager): #Socket boilerplate.
@@ -10,18 +12,30 @@ class ThreadedSession(object):
         self.host = host
         self.port = port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.sock.bind((self.host, self.port))
+        #self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        #self.sock.bind((self.host, self.port))
         self.sem_lock = semaphore
         self.manager = session_manager
 
     def listen(self):
-        print("Session running on: "+self.host)
-        # Listen for incoming connections. Queue up to five waiting to be handled in threads.
-        self.sock.listen(5)
-        client, address = self.sock.accept()
-        client.settimeout(60)
-        self.listenToClient(client)
+        try:
+            self.sock.bind((self.host, self.port))
+            print("Session running on: "+self.host)
+            # Listen for incoming connections. Queue up to five waiting to be handled in threads.
+            self.sock.listen(5)
+            client, address = self.sock.accept()
+            client.settimeout(60)
+            self.listenToClient(client)
+        except OSError:
+            print("Ditching the session on "+self.host)
+            print(OSError.strerror)
+
+    def connect(self, dest_address, dest_port):
+        print(dest_address+", "+str(dest_port))
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.connect((dest_address, dest_port))
+        print("Connected "+self.host+" and "+ str(dest_address))
+
 
     def listenToClient(self, client):
         size = 2048
@@ -41,7 +55,8 @@ class ThreadedSession(object):
                 return False
 
     def stop(self):
-        raise socket.error()
+        self.sock.close()
+
     #we need to be able to send/receive data at the same time
     #figure out how to connect threads to new endpoints
     def connectToClient(self, client):
