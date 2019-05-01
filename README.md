@@ -1,4 +1,10 @@
-# Project name
+# Stream Splitting Moving Target Defense
+### Team Members
+* Greg Baltzer
+* Luke Zwenger
+* Marvin Roe
+* Alex Stara
+
 ## Executive Summary
 Sending communications along a single channel poses certain risks to the data streams being sent. Data which runs via a single route is vulnerable to a variety of threats against confidentiality, integrity, and availability. These include the actions of human threat agents who may jeopardize any of these principles via intercepting, modifying, replaying, or outright discarding messages of importance. Also of concern is the potential threat by natural occurrences which may interrupt or delay services which remain on one communication channel at a time.
 
@@ -40,17 +46,39 @@ the outcomes that have been achieved thus far:
 * Multithreaded socket connections for simultaneous data reception.
 * Automatic enumeration and initialization of network interfaces.
 * OS independent operation.
+* Handshake between hosts to enumerate and connect all available interfaces on each machine.
+* Error detection/correction to reduce probablity of broken messages.
+* Automatic failover if an interface fails.
+* Code maintainability.
 
-(bulleted lists can also be helpful to structure your results discussion)
-* outcome 1
-* outcome 2
 
-## Install Instructions (if applicable)
+
+## Install Instructions 
 ### Requirements
-(list of any software / hardware requirements necessary to run the code/app/etc)
+* Python 3.6.3
 
 ### Installation Instructions
-(list of steps to install the product/app/code/etc)
+* Download Python [here](https://www.python.org/downloads/).
+
 
 ### Getting started
-(list of any steps to run the code after installation and/or manage the apps over their lifecycle)
+##### Windows
+* Open Command line:   Start menu -> Run  and type cmd
+* Type:   ```C:\{path to your python interpreter}\python.exe C:\{path to your code}\MultiPathServer.py```
+* Type:   ```C:\{path to your python interpreter}\python.exe C:\{path to your code}\MultiPathClient.py```
+* Or if your system is configured correctly, you can drag and drop your scripts from Explorer onto the Command Line window and press enter.
+
+##### Mac OS X
+* Open Command line: Finder -> Go menu -> Applications -> Terminal
+* Type: ```python ~/{path to your code}/MultiPathServer.py```
+* Type: ```python ~/{path to your code}/MultiPathClient.py```
+
+##### Linux
+* Open a command prompt
+* Type: ```python ~/{path to your code}/MultiPathServer.py```
+* Type: ```python ~/{path to your code}/MultiPathClient.py```
+
+#### Using the program
+* Once the program is running the user will be prompted for an ip address with which to connect. The user may enter any of the destination's ip addresses and all the available interfaces will be connected. 
+* For ease of use, the ports have been hard coded but that can be undone quite simply by uncommenting the following lines ```input("Listening Port? ")``` and ```input("Destination Port? ")```
+* Once the connections are made, you can send data from the client to the server where it will be printed out. 

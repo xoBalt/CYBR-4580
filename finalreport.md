@@ -53,7 +53,7 @@ the outcomes that have been achieved thus far:
 
 
 
-## Install Instructions (if applicable)
+## Install Instructions 
 ### Requirements
 * Python 3.6.3
 
