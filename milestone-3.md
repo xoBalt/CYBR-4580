@@ -9,6 +9,10 @@ a proof of concept before incorporating them into the final product. We have suc
 into our final product  ```MultiPathServer.py``` and ```MultiPathClient.py```. Fundamentally these two applications function in the same way
 but for demonstration purposes we have included them as two seperate files. One which is intended to be the sender of data (```client```) and one which is intended to 
 be the reciever (```server```). 
+
+Also ncluded in this milestone are two completely new pieces of the application which are ```session.py``` and ```sessionmanager.py```. Their purpose is fairly self explanatory but primarily they are 
+intended to make the maintenance and expansion of the code base more manageable in the future. For every conection that is made within the application, a ```session``` object is created 
+and is tracked and managed by the ```sessionmanager``` object which is what the main application interacts with to manage the sessions. 
 ## Outcomes
 At this point we can automatically enumerate all network interfaces on both host machines and initialize a thread for each interface that will listen for incoming connections and send data to outbound connections.
 For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
@@ -24,6 +28,7 @@ the outcomes that have been achieved thus far:
 * **Handshake between hosts to enumerate and connect all available interfaces on each machine.**
 * **Error detection/correction to reduce probablity of broken messages.**
 * **Automatic failover if an interface fails.**
+* **Code maintainability improvements.**
 
 ## Hinderances
 As we ventured into more advanced topics in Python, much of our prerequisite knowledge was put to the test. As was noted in milestone 1, the 
