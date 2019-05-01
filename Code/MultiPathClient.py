@@ -185,7 +185,6 @@ if __name__ == "__main__":
                 manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
 
             count += 1
-            # time.sleep(0.1)
 
             if (manager.data_array):
                 manager.data_array.sort(key=sortbysequence)
