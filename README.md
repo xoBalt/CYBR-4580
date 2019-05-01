@@ -62,6 +62,11 @@ the outcomes that have been achieved thus far:
 
 
 ### Getting started
+Below you will find a list of instructions associated with getting started on this project. This includes, cloning the repository, running the application, and using the application. 
+#### Cloning this repository:
+Specific instructions on how to do this on each operating system can be found [here](https://help.github.com/en/articles/cloning-a-repository).
+
+#### Running the application:
 ##### Windows
 * Open Command line:   Start menu -> Run  and type cmd
 * Type:   ```C:\{path to your python interpreter}\python.exe C:\{path to your code}\MultiPathServer.py```
@@ -78,7 +83,8 @@ the outcomes that have been achieved thus far:
 * Type: ```python ~/{path to your code}/MultiPathServer.py```
 * Type: ```python ~/{path to your code}/MultiPathClient.py```
 
-#### Using the program
+#### Using the application
 * Once the program is running the user will be prompted for an ip address with which to connect. The user may enter any of the destination's ip addresses and all the available interfaces will be connected. 
 * For ease of use, the ports have been hard coded but that can be undone quite simply by uncommenting the following lines ```input("Listening Port? ")``` and ```input("Destination Port? ")```
+* Be sure that the ```MultiPathServer``` is running and listening before you attempt to connect ```MultiPathClient```.
 * Once the connections are made, you can send data from the client to the server where it will be printed out. 

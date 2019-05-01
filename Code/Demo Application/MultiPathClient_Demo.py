@@ -63,14 +63,13 @@ if __name__ == "__main__":
             #add the valid interfaces
             valid_adapters.append(adapter)
 
-    print("Available Interfaces:")
     for adapter in valid_adapters:
         print(adapter.nice_name)
         print("   %s" % (adapter.ips[0].ip))
 
     while True:
         #Each NIC operates on the same port (this isn't necessary but just allows for faster testing)
-        local_portNo = 1111
+        local_portNo = 1234
             #input("Listening Port? ")
 
         try:
@@ -81,7 +80,7 @@ if __name__ == "__main__":
 
     while True:
         #Each NIC operates on the same port (this isn't necessary but just allows for faster testing)
-        dest_portNo = 1234
+        dest_portNo = 1111
             #input("Destination Port? ")
         try:
             dest_portNo = int(dest_portNo) # Ensure port is valid.
@@ -111,6 +110,7 @@ if __name__ == "__main__":
                         manager.handshake_send(sock, ip)
                         ###########################
                         sock.close()
+                        print("Sent to: "+str(manager.dest_addr[0].ips[0].ip))
                         complete = True
                         break;
                     else:
@@ -120,16 +120,18 @@ if __name__ == "__main__":
             if complete:
                 manager.data_array.clear()
                 manager.kill_threads()
-                manager.initialize_threads(manager.local_addr)
+                manager.initialize_connections()
                 break;
         #Actively seek connection
         else:
             try:
                 #Outgoing Handshake
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                print(ip + ", " + str(dest_portNo))
                 sock.connect((ip, dest_portNo))
                 manager.handshake_send(sock, ip)
                 ###################
+                print("Sent handshake...")
                 sock.close()
                 while True:
                     complete = False
@@ -147,18 +149,59 @@ if __name__ == "__main__":
             except socket.error:
                 print("Failed to connect, please retry...")
                 print(socket.error)
-        break;
+        break
 
-    print("Connections made.")
+    print("Handshake complete.")
+
+
 
     while True:
-        time.sleep(5)
-        if(manager.data_array):
-            manager.data_array.sort(key= sortbysequence)
-            message = ""
-            for datum in manager.data_array:
-                message += datum.data
-                message += " "
-            print(message)
-            manager.data_array.clear()
+        count = 0
+
+        message = input("message: ")
+
+        if message == "stop":
+            break
+        # Split sentence per word and put it in individual packet
+        data = []
+        sentence = []
+        sentence = str.split(message, " ")
+
+        # initialize array of packets
+        for word in sentence:
+            data.append(packet.packet(None, None, None, None, word, None, None))
+
+        # send each packet
+        for datum in data:
+            # select random connection to send the data on
+            randomConnection = random.randint(0, manager.connection_count-1)
+            randomDestination = random.randint(0, len(manager.dest_addr)-1)
+            # Set packet information
+            datum.sequence_number = count
+            datum.size = len(data)
+            datum.source = manager.sessions[randomConnection].sock.getsockname()
+            datum.destination = manager.dest_addr[randomDestination].ips[0].ip
+            #send each packet from a random source to a random destination.
+
+            try:
+                manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+
+            except:
+                manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
+
+            count += 1
+            # time.sleep(0.1)
+            print("Sent to: " + str(datum.destination) + " from: "+ str(datum.source))
+
+            if (manager.data_array):
+                manager.data_array.sort(key=sortbysequence)
+                for datum in manager.data_array:
+                    print(datum.data)
+
+                manager.data_array.clear()
+
+    # close all the connections if the user types "stop"
+    manager.kill_threads()
+    exit()
+
 

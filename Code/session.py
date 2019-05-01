@@ -7,7 +7,7 @@ class ThreadedServer(object):
         self.sock.bind((self.host, self.port))
 
     def listen(self):
-        print("Session running on: "+self.host)
+        #print("Session running on: "+self.host)
         # Listen for incoming connections. Queue up to five waiting to be handled in threads.
         self.sock.listen(5)
         client, address = self.sock.accept()

@@ -8,7 +8,6 @@ import threading
 
 class ThreadedSession(object):
     def __init__(self, host, port, semaphore, session_manager): #Socket boilerplate.
-        print(host)
         self.host = host
         self.port = port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -20,18 +19,17 @@ class ThreadedSession(object):
     def listen(self):
         try:
             self.sock.bind((self.host, self.port))
-            print("Session running on: "+self.host)
+            #print("Session running on: "+self.host)
             # Listen for incoming connections. Queue up to five waiting to be handled in threads.
             self.sock.listen(5)
             client, address = self.sock.accept()
             client.settimeout(60)
             self.listenToClient(client)
         except OSError:
-            print("Ditching the session on "+self.host)
-            print(OSError.strerror)
+            print("...")
 
     def connect(self, dest_address, dest_port):
-        print(dest_address+", "+str(dest_port))
+        #print(dest_addregss+", "+str(dest_port))
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((dest_address, dest_port))
         print("Connected "+self.host+" and "+ str(dest_address))
@@ -39,7 +37,7 @@ class ThreadedSession(object):
 
     def listenToClient(self, client):
         size = 2048
-        print("Connection made on " + self.host)
+        #print("Connection made on " + self.host)
         while True:
             data = client.recv(size) # Listen for data from client.
             if data:
@@ -50,7 +48,6 @@ class ThreadedSession(object):
                 #after modifying the array it is released
 
             else:
-                print('Client disconnected')
                 client.close()
                 return False
 

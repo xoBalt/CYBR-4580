@@ -63,7 +63,6 @@ if __name__ == "__main__":
             #add the valid interfaces
             valid_adapters.append(adapter)
 
-    print("Available Interfaces:")
     for adapter in valid_adapters:
         print(adapter.nice_name)
         print("   %s" % (adapter.ips[0].ip))
@@ -111,6 +110,7 @@ if __name__ == "__main__":
                         manager.handshake_send(sock, ip)
                         ###########################
                         sock.close()
+                        print("Sent to: "+str(manager.dest_addr[0].ips[0].ip))
                         complete = True
                         break;
                     else:
@@ -127,9 +127,11 @@ if __name__ == "__main__":
             try:
                 #Outgoing Handshake
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                print(ip + ", " + str(dest_portNo))
                 sock.connect((ip, dest_portNo))
                 manager.handshake_send(sock, ip)
                 ###################
+                print("Sent handshake...")
                 sock.close()
                 while True:
                     complete = False
@@ -147,18 +149,18 @@ if __name__ == "__main__":
             except socket.error:
                 print("Failed to connect, please retry...")
                 print(socket.error)
-        break;
+        break
 
-    print("Connections made.")
+    print("Handshake complete.")
+
+
 
     while True:
         time.sleep(5)
         if(manager.data_array):
             manager.data_array.sort(key= sortbysequence)
-            message = ""
             for datum in manager.data_array:
-                message += datum.data
-                message += " "
-            print(message)
+                print(datum.data)
+
             manager.data_array.clear()
 
