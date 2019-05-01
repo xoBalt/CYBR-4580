@@ -19,7 +19,7 @@ The goal of this project is to develop and prototype an interface which may be d
 
 
 ## Proposed Project Timeline
- ![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Gnatt%20Chart.PNG)
+ ![alt text](https://github.com/xoBalt/Capstone-Stream-Splitting-MTD/blob/master/Sprint%203%20Timeline.PNG)
 
 ## Project-oriented Risk List
 

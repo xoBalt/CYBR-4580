@@ -10,8 +10,8 @@ into our final product  ```MultiPathServer.py``` and ```MultiPathClient.py```. F
 but for demonstration purposes we have included them as two seperate files. One which is intended to be the sender of data (```client```) and one which is intended to 
 be the reciever (```server```). 
 
-Also ncluded in this milestone are two completely new pieces of the application which are ```session.py``` and ```sessionmanager.py```. Their purpose is fairly self explanatory but primarily they are 
-intended to make the maintenance and expansion of the code base more manageable in the future. For every conection that is made within the application, a ```session``` object is created 
+Also ncluded in this milestone are two completely new pieces of the application which are ```ThreadedSession.py``` and ```sessionmanager.py```. Their purpose is fairly self explanatory but primarily they are 
+intended to make the maintenance and expansion of the code base more manageable in the future. For every conection that is made within the application, a ```ThreadedSession``` object is created 
 and is tracked and managed by the ```sessionmanager``` object which is what the main application interacts with to manage the sessions. 
 ## Outcomes
 At this point we can automatically enumerate all network interfaces on both host machines and initialize a thread for each interface that will listen for incoming connections and send data to outbound connections.
