@@ -151,47 +151,85 @@ if __name__ == "__main__":
 
     print("Connections made.")
     while True:
+        choice = input("Send message (1) or transfer file (2): ")
         count = 0
-
-        message = input("message: ")
-
-        if message == "stop":
-            break
-        # Split sentence per word and put it in individual packet
         data = []
-        sentence = []
-        sentence = str.split(message, " ")
 
-        # initialize array of packets
-        for word in sentence:
-            data.append(packet.packet(None, None, None, None, word, None, None))
+        if choice == "1":
+            message = input("message: ")
 
-        # send each packet
-        for datum in data:
-            # select random connection to send the data on
-            randomConnection = random.randint(0, manager.connection_count-1)
-            randomDestination = random.randint(0, len(manager.dest_addr)-1)
-            # Set packet information
-            datum.sequence_number = count
-            datum.size = len(data)
-            datum.source = manager.sessions[randomConnection].sock.getsockname()
-            datum.destination = manager.dest_addr[randomDestination].ips[0].ip
-            #send each packet from a random source to a random destination.
+            if message == "stop":
+                break
+            # Split sentence per word and put it in individual packet
+            sentence = []
+            sentence = str.split(message, " ")
 
-            try:
-                manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+            # initialize array of packets
+            for word in sentence:
+                data.append(packet.packet(None, None, None, None, word, None, None))
 
-            except:
-                manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
+            # send each packet
+            for datum in data:
+                # select random connection to send the data on
+                randomConnection = random.randint(0, manager.connection_count-1)
+                randomDestination = random.randint(0, len(manager.dest_addr)-1)
+                # Set packet information
+                datum.sequence_number = count
+                datum.size = len(data)
+                datum.source = manager.sessions[randomConnection].sock.getsockname()
+                datum.destination = manager.dest_addr[randomDestination].ips[0].ip
+                #send each packet from a random source to a random destination.
 
-            count += 1
+                try:
+                    manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
 
-            if (manager.data_array):
-                manager.data_array.sort(key=sortbysequence)
-                for datum in manager.data_array:
-                    print(datum.data)
+                except:
+                    manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
 
-                manager.data_array.clear()
+                count += 1
+
+                if (manager.data_array):
+                    manager.data_array.sort(key=sortbysequence)
+                    for datum in manager.data_array:
+                        print(datum.data)
+
+                    manager.data_array.clear()
+            print("Message sent...")
+        elif choice == "2":
+            filename = input("File name: ")
+            f = open(filename, 'rb')
+            data.append(packet.packet(None, None, None, None, "file", None, None))
+            data.append(packet.packet(None, None, None, None, filename, None, None))
+
+            l = f.read(1024)
+            while (l):
+                data.append(packet.packet(None, None, None, None, l, None, None))
+                l = f.read(1024)
+
+            # send each packet
+            for datum in data:
+                # select random connection to send the data on
+                randomConnection = random.randint(0, manager.connection_count-1)
+                randomDestination = random.randint(0, len(manager.dest_addr)-1)
+                # Set packet information
+                datum.sequence_number = count
+                datum.size = len(data)
+                datum.source = manager.sessions[randomConnection].sock.getsockname()
+                datum.destination = manager.dest_addr[randomDestination].ips[0].ip
+                #send each packet from a random source to a random destination.
+
+                try:
+                    manager.sessions[randomConnection].sock.send(pickle.dumps(datum))
+
+                except:
+                    manager.sessions[randomConnection].sock.sendto(pickle.dumps(datum), (datum.destination, dest_portNo))
+
+                count += 1
+            print("File sent...")
+
+
+        else:
+            print("Invalid choice, try again...")
 
     # close all the connections if the user types "stop"
     manager.kill_threads()

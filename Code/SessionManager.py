@@ -67,7 +67,7 @@ class SessionManager(object):
         #print("Connections made....")
     #sends list of available ip addresses
     def handshake_send(self, sock, dest_ip):
-        handshake_packet = packet.packet(socket.AF_INET, dest_ip, 1, 2048,pickle.dumps(self.local_addr), None, None)
+        handshake_packet = packet.packet(socket.AF_INET, dest_ip, 1, 1024,pickle.dumps(self.local_addr), None, None)
         sock.send(pickle.dumps(handshake_packet))
         #print("Sent local addresses.")
         #for address in self.local_addr:

@@ -156,9 +156,22 @@ if __name__ == "__main__":
         if(manager.data_array):
             manager.data_array.sort(key= sortbysequence)
             message = ""
-            for datum in manager.data_array:
-                message += datum.data
-                message += " "
-            print(message)
+            filedata = bin(123)
+            if(manager.data_array[0].data == "file"):
+                with open("NEW-"+str(manager.data_array[1].data), 'wb') as f:
+                    print('receiving file data...')
+                    for datum in manager.data_array:
+                        if datum.sequence_number > 1:
+                            # write data to a file
+                            f.write(datum.data)
+
+
+
+                print("File recieved: "+ manager.data_array[1].data)
+            else:
+                for datum in manager.data_array:
+                    message += datum.data
+                    message += " "
+                print(message)
             manager.data_array.clear()
 
