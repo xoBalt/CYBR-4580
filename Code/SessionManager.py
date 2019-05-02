@@ -41,7 +41,9 @@ class SessionManager(object):
             else:
                 adapters.remove(adapter)
 
-
+    def remove_session(self, session):
+        self.sessions.remove(session)
+        self.connection_count -= 1
 
     def kill_threads(self):
         #Close all the sockets in the threads

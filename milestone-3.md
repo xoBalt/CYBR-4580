@@ -29,7 +29,6 @@ the outcomes that have been achieved thus far:
 * **Send/recieve any type of file.**
 * **Handshake between hosts to enumerate and connect all available interfaces on each machine.**
 * **Error detection/correction to reduce probablity of broken messages.**
-* **Automatic failover if an interface fails.**
 * **Code maintainability improvements.**
 
 ## Hinderances
