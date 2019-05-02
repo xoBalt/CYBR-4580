@@ -39,11 +39,12 @@ progressed but we narrowed them down as development went on.
 
 ## Results / Findings
 At this point we can automatically enumerate all network interfaces on the host machine and initialize a thread for each interface that will listen for incoming connections.
-For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
-of destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
+For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random interface
+to a random destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
 the outcomes that have been achieved thus far:
 
 * Successful data disassembly and reassembly.
+* Send/recieve any type of file.
 * Random distribution of data segments between network interfaces.
 * Error correction in the form of sorting the data back into its intended sequence.
 * Multithreaded socket connections for simultaneous data reception.
@@ -51,7 +52,6 @@ the outcomes that have been achieved thus far:
 * OS independent operation.
 * Handshake between hosts to enumerate and connect all available interfaces on each machine.
 * Error detection/correction to reduce probablity of broken messages.
-* Automatic failover if an interface fails.
 * Code maintainability.
 
 ### Architectural  Diagrams
@@ -65,7 +65,8 @@ the outcomes that have been achieved thus far:
 #### [Level 4](https://www.lucidchart.com/documents/edit/b4d7d994-e823-49d3-ad65-f07a17aea869#)
 
 
-## Installation Instructions 
+
+## Install Instructions 
 ### Requirements
 * Python 3.6.3
 
@@ -74,6 +75,11 @@ the outcomes that have been achieved thus far:
 
 
 ### Getting started
+Below you will find a list of instructions associated with getting started on this project. This includes, cloning the repository, running the application, and using the application. 
+#### Cloning this repository:
+Specific instructions on how to do this on each operating system can be found [here](https://help.github.com/en/articles/cloning-a-repository).
+
+#### Running the application:
 ##### Windows
 * Open Command line:   Start menu -> Run  and type cmd
 * Type:   ```C:\{path to your python interpreter}\python.exe C:\{path to your code}\MultiPathServer.py```
@@ -90,7 +96,8 @@ the outcomes that have been achieved thus far:
 * Type: ```python ~/{path to your code}/MultiPathServer.py```
 * Type: ```python ~/{path to your code}/MultiPathClient.py```
 
-#### Using the program
+#### Using the application
 * Once the program is running the user will be prompted for an ip address with which to connect. The user may enter any of the destination's ip addresses and all the available interfaces will be connected. 
 * For ease of use, the ports have been hard coded but that can be undone quite simply by uncommenting the following lines ```input("Listening Port? ")``` and ```input("Destination Port? ")```
-* Once the connections are made, you can send data from the client to the server where it will be printed out. 
+* Be sure that the ```MultiPathServer``` is running and listening before you attempt to connect ```MultiPathClient```.
+* Once the connections are made, you can send data from the clien
