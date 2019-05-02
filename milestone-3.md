@@ -16,7 +16,8 @@ and is tracked and managed by the ```sessionmanager``` object which is what the 
 ## Outcomes
 At this point we can automatically enumerate all network interfaces on both host machines and initialize a thread for each interface that will listen for incoming connections and send data to outbound connections.
 For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
-of both source and destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
+of both source and destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. In addition, we have added the functionality
+to send/recieve files of any type. Upon reciept, the file will be copied to the host machine with the same name as the sender. The following is a full list of 
 the outcomes that have been achieved thus far:
 
 * Successful data disassembly and reassembly.
@@ -25,6 +26,7 @@ the outcomes that have been achieved thus far:
 * Multithreaded socket connections for simultaneous data reception.
 * Automatic enumeration and initialization of network interfaces.
 * OS independent operation.
+* **Send/recieve any type of file.**
 * **Handshake between hosts to enumerate and connect all available interfaces on each machine.**
 * **Error detection/correction to reduce probablity of broken messages.**
 * **Automatic failover if an interface fails.**
