@@ -37,14 +37,16 @@ Throughout the project we utilized Git in order to manage the code base more eff
 Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams were slightly fluid for the first couple weeks as the project 
 progressed but we narrowed them down as development went on.
 
+### Group Trello Board
+https://trello.com/b/S4UXJ3fy/stream-splitting-mtd
+
 ## Results / Findings
 At this point we can automatically enumerate all network interfaces on the host machine and initialize a thread for each interface that will listen for incoming connections.
-For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random interface
-to a random destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
+For demonstration purposes, the client accepts a message as input and splits that string into individual words. It then sends each word in its own isolated packet via a random selection
+of destination addresses associated with the host. Once the individual packets reach the destination, they're reassembled and sorted based on the order they were initially arranged. The following is a full list of 
 the outcomes that have been achieved thus far:
 
 * Successful data disassembly and reassembly.
-* Send/recieve any type of file.
 * Random distribution of data segments between network interfaces.
 * Error correction in the form of sorting the data back into its intended sequence.
 * Multithreaded socket connections for simultaneous data reception.
@@ -100,4 +102,7 @@ Specific instructions on how to do this on each operating system can be found [h
 * Once the program is running the user will be prompted for an ip address with which to connect. The user may enter any of the destination's ip addresses and all the available interfaces will be connected. 
 * For ease of use, the ports have been hard coded but that can be undone quite simply by uncommenting the following lines ```input("Listening Port? ")``` and ```input("Destination Port? ")```
 * Be sure that the ```MultiPathServer``` is running and listening before you attempt to connect ```MultiPathClient```.
-* Once the connections are made, you can send data from the clien
+* Once the connections are made, you can send data from the client
+
+#### Full project documentation can be found on our group github:
+https://github.com/xoBalt/Capstone-Stream-Splitting-MTD

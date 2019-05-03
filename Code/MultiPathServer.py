@@ -66,7 +66,7 @@ if __name__ == "__main__":
     print("Available Interfaces:")
     for adapter in valid_adapters:
         print(adapter.nice_name)
-        print("   %s" % (adapter.ips[0].ip))
+        print('   {0}'.format(adapter.ips[0].ip))
 
     while True:
         #Each NIC operates on the same port (this isn't necessary but just allows for faster testing)

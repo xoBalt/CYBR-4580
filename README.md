@@ -17,22 +17,28 @@ The goal of this project is to develop and prototype an interface which may be d
  * Ensure data encryption
  * Provide increased bandwidth
  * Test for communication quality
+ 
+To better describe the desired workflow of the application, we have created activity diagrams linked below.
+##### [Activity Diagrams](https://www.lucidchart.com/invitations/accept/ec184381-74cb-44d4-9053-03b1bd58b8c0)
 
 ## Project Methodology
 
 Through our research thus far, we have discovered a number of techniques that may be used to achieve our project objectives. In deciding which path to take, one of our main considerations was the 
 experience levels and expertise areas of the group. Seeing as none of us have experience in kernel level software development, we have decided that modifying MPTCP to our project objectives is not 
-a direction that we feel comfortable with. Instead we plan on developing a user level application and creating a proof of concept most likely using Python. In order to achieve our goals
-it may be advantageous to utilize an operating system that is specifically designed for application-level networking. We are currently considering the use of an operating system 
-created by the MIT Parallel and Distributed Operating Systems Group called Exokernel. This operating system would allow our user level program to more directly interact with the networking 
-interfaces and therefore increase performance. If we plan to use Exokernel, the application development will most likely have to be done in C but we are still researching this.
+a direction that we feel comfortable with. Instead we have developed a user level application and created a proof of concept using Python. In order to achieve our goals
+it may be advantageous to utilize an operating system that is specifically designed for application-level networking. We had considered the use of an operating system 
+created by the MIT Parallel and Distributed Operating Systems Group called Exokernel. This operating system would allow a user level program to more directly interact with the networking 
+interfaces and therefore increase performance. After deliberation however, we have decided that it would be better for the application to be OS independent to increase portability. 
 
-Measuring success in terms of our project goals will be one of the more complex tasks we complete. When testing the performance capabilities of the stream splitting software we plan to utilize ethernet and WiFi concurrently. Due to the fact that we will be utilizing wireless communication, one major concern is interference. All tests will be conducted in an
-environment where the signal to noise ratio (SNR) is 23 dB or more so that signal interference could be consiered negligible. We will also be conducting tests during non-peak hours to ensure that network congestion on the WAN is a non factor. Measurements will be made not only in terms of aggregate bandwidth available, but also in latency and error frequency.
+Measuring success in terms of our project goals was one of the more complex tasks we had to tackle. When testing the performance capabilities of the stream splitting software we utilized ethernet and WiFi concurrently. Due to the fact that we were utilizing wireless communication, one of our major concerns was interference. All tests were conducted in an
+environment where the signal to noise ratio (SNR) was 23 dB or more so that signal interference could be consiered negligible. We also conducted tests during non-peak hours to ensure that network congestion on the WAN was a non factor.
 
-Throughout the project we will be utilizing Git in order to manage the code base more effectively. We will also be collaborating with Trello and organizing all of our tasks and task assignment through that platform. Our first sprint plan can be found on that Trello board. 
-Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams will be slightly fluid for the first couple weeks as the project 
-progresses and we narrow down a more specific path for development.
+Throughout the project we utilized Git in order to manage the code base more effectively. We also collaborated on Trello, organizing all of our tasks and task assignment through that platform. All of the completed tasks from throughout the project can be found there.
+Below, there are a number of architectural diagrams that follow the C4 model and describe the general structure of the proof of concept software. These diagrams were slightly fluid for the first couple weeks as the project 
+progressed but we narrowed them down as development went on.
+
+### Group Trello Board
+https://trello.com/b/S4UXJ3fy/stream-splitting-mtd
 
 ## Results / Findings
 At this point we can automatically enumerate all network interfaces on the host machine and initialize a thread for each interface that will listen for incoming connections.
@@ -48,8 +54,17 @@ the outcomes that have been achieved thus far:
 * OS independent operation.
 * Handshake between hosts to enumerate and connect all available interfaces on each machine.
 * Error detection/correction to reduce probablity of broken messages.
-* Automatic failover if an interface fails.
 * Code maintainability.
+
+### Architectural  Diagrams
+
+#### [Level 1](https://www.lucidchart.com/invitations/accept/85a4fb6b-4c7b-486a-9fc6-2013971c1806)
+
+#### [Level 2](https://www.lucidchart.com/invitations/accept/d02d1069-4ae7-4904-a2be-35bbf2d8029a)
+
+#### [Level 3](https://www.lucidchart.com/invitations/accept/176e994b-ccd0-4253-b446-5c1b041db682)
+
+#### [Level 4](https://www.lucidchart.com/documents/edit/b4d7d994-e823-49d3-ad65-f07a17aea869#)
 
 
 
@@ -59,6 +74,8 @@ the outcomes that have been achieved thus far:
 
 ### Installation Instructions
 * Download Python [here](https://www.python.org/downloads/).
+* You may be missing the following modules: ifaddr
+* To install these modules simply type in your terminal: ```pip install {module_name}```
 
 
 ### Getting started
@@ -87,4 +104,7 @@ Specific instructions on how to do this on each operating system can be found [h
 * Once the program is running the user will be prompted for an ip address with which to connect. The user may enter any of the destination's ip addresses and all the available interfaces will be connected. 
 * For ease of use, the ports have been hard coded but that can be undone quite simply by uncommenting the following lines ```input("Listening Port? ")``` and ```input("Destination Port? ")```
 * Be sure that the ```MultiPathServer``` is running and listening before you attempt to connect ```MultiPathClient```.
-* Once the connections are made, you can send data from the client to the server where it will be printed out. 
+* Once the connections are made, you can send data from the client
+
+#### Full project documentation can be found on our group github:
+https://github.com/xoBalt/Capstone-Stream-Splitting-MTD
